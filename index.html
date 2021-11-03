@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Element with Webp Format</title>
+</head>
+<body>
+
+    <!-- regular image tag with a webp image format-->
+    <img src="img/autumn-coffee-md.webp" alt="autumn coffee" />    
+
+    <!-- creating a fallback resource with webp 
+        - not all browsers work well with webp format, so it's important to have fallback image type that works in all browsers suchy as jpgs, png, etc...
+    -->
+    <picture>
+        <source srcset="img/pile-leaves-md.webp" type="image/webp"/>
+        <!-- fallback if browser do not accept webp formats -->
+        <img src="pile-leaves-md.jpg" alt="pile of leaves" />
+    </picture>
+
+    <!-- 
+        - The use of the picture element can be used as fallback image, but also as to swap out images at different screen sizes
+        - to use webp as your default image we need to add an type attribute, without the type attribute the picture element will default to the jpg image. 
+        
+        so differnt type attributes would be:
+        - image/webp
+        - image/jpg
+        -image/png...
+        to make sure the browser is using our webp image we will need to add type="image/webp"
+
+        * Remember, if you are swapping images for different screens the media queries the largest screen size needs to come first. 
+    -->
+    <picture>
+        <!-- medium to large screens -->
+        <source media="(min-width: 1200px)" srcset="img/pile-leaves-md.webp" type="image/webp"/>
+        <!-- small screens -->
+        <source srcset="img/pile-leaves.webp" type="image/webp"/>
+        <!-- fallback if browser do not accept webp formats -->
+        <img src="img/pile-leaves.jpg" alt="pile of leaves" />
+    </picture>
+
+    <picture>
+        <!-- 
+            - fallback image - fallback formats
+            - multiple sized images that display at different screens all within <picture> element.
+        -->
+    </picture>
+    
+</body>
+</html>
